@@ -23,6 +23,13 @@ namespace MVCLibrary
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                      "~/Scripts/angular.js"));
+
+            //Add controllers here
+            bundles.Add(new ScriptBundle("~/bundles/controllers").Include(
+                      "~/Scripts/controllers/"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
