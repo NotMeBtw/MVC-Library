@@ -26,5 +26,11 @@ namespace MVCLibrary.Controllers
 
             return View();
         }
+
+        public ActionResult Search(string search)
+        {
+            ViewBag.Message = "You searched for: " + search;
+            return View();
+        }
     }
 }
