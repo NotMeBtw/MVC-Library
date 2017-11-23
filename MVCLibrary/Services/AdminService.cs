@@ -1,5 +1,6 @@
 ﻿using MVCLibrary.IRepository;
 using MVCLibrary.IServices;
+using MVCLibrary.Models;
 using MVCLibrary.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,41 @@ namespace MVCLibrary.Services
     public class AdminService : IAdminService
     {
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IBookRepository _bookRepository;
 
-        public AdminService(ICategoryRepository categoryRepository)
+        public AdminService(ICategoryRepository categoryRepository, IBookRepository bookRepository)
         {
             _categoryRepository = categoryRepository;
+            _bookRepository = bookRepository;
+        }
+
+        public bool AddNewBook(AddBookViewModel addBookVM)
+        {
+            if (addBookVM == null)
+                return false;
+
+            var category = _categoryRepository.GetCategoryById(int.Parse(addBookVM.SelectedCategoryId));
+
+            if (category == null)
+                return false;
+
+            var book = new Book()
+            {
+                Author = addBookVM.Author,
+                Title = addBookVM.Title,
+                ISBN = addBookVM.ISBN,
+                Category = category
+            };
+
+            try
+            {
+                _bookRepository.AddBook(book);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public AddBookViewModel GetAddBookVM()

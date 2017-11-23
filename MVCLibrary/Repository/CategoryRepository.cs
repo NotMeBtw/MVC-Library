@@ -27,5 +27,17 @@ namespace MVCLibrary.Repository
                 throw e;
             }
         }
+
+        public Category GetCategoryById(int id)
+        {
+            try
+            {
+                return _dbcontext.Category.FirstOrDefault(c => c.Id == id);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

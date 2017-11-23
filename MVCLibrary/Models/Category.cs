@@ -15,5 +15,7 @@ namespace MVCLibrary.Models
         public int? RootCategoryId { get; set; }
 
         public virtual Category RootCategory { get; set; }
+
+        public virtual ICollection<Book> Books { get; set; }
     }
 }

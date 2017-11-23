@@ -229,6 +229,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IRepository\IBookRepository.cs" />
     <Compile Include="IRepository\ICategoryRepository.cs" />
     <Compile Include="IServices\IAdminService.cs" />
     <Compile Include="IServices\ILanguageService.cs" />
@@ -252,8 +253,34 @@
     <Compile Include="Migrations\201711231418034_thourth.Designer.cs">
       <DependentUpon>201711231418034_thourth.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711231538482_5.cs" />
+    <Compile Include="Migrations\201711231538482_5.Designer.cs">
+      <DependentUpon>201711231538482_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231552239_6.cs" />
+    <Compile Include="Migrations\201711231552239_6.Designer.cs">
+      <DependentUpon>201711231552239_6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231553272_j.cs" />
+    <Compile Include="Migrations\201711231553272_j.Designer.cs">
+      <DependentUpon>201711231553272_j.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231601071_10.cs" />
+    <Compile Include="Migrations\201711231601071_10.Designer.cs">
+      <DependentUpon>201711231601071_10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231606565_11.cs" />
+    <Compile Include="Migrations\201711231606565_11.Designer.cs">
+      <DependentUpon>201711231606565_11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231608268_12.cs" />
+    <Compile Include="Migrations\201711231608268_12.Designer.cs">
+      <DependentUpon>201711231608268_12.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MVCLIbraryContext.cs" />
+    <Compile Include="Models\Queue.cs" />
+    <Compile Include="Repository\BookRepository.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Resources\HomeTexts.pl.Designer.cs">
       <DependentUpon>HomeTexts.pl.resx</DependentUpon>
@@ -274,8 +301,6 @@
     <Compile Include="Models\Lend.cs" />
     <Compile Include="ViewModels\AdminViewModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
-    <Compile Include="Models\QueueBook.cs" />
-    <Compile Include="Models\SearchHistory.cs" />
     <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -381,6 +406,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711231418034_thourth.resx">
       <DependentUpon>201711231418034_thourth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231538482_5.resx">
+      <DependentUpon>201711231538482_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231552239_6.resx">
+      <DependentUpon>201711231552239_6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231553272_j.resx">
+      <DependentUpon>201711231553272_j.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231601071_10.resx">
+      <DependentUpon>201711231601071_10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231606565_11.resx">
+      <DependentUpon>201711231606565_11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231608268_12.resx">
+      <DependentUpon>201711231608268_12.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\HomeTexts.pl.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -5,13 +5,12 @@ using System.Web;
 
 namespace MVCLibrary.Models
 {
-    public class QueueBook
+    public class Queue
     {
         public int Id { get; set; }
 
-        public ICollection<User> Users { get; set; }
+        public User User { get; set; }
 
         public Book Book { get; set; }
-
     }
 }

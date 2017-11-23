@@ -10,5 +10,7 @@ namespace MVCLibrary.IServices
     public interface IAdminService 
     {
         AddBookViewModel GetAddBookVM();
+
+        bool AddNewBook(AddBookViewModel addBookVM);
     }
 }

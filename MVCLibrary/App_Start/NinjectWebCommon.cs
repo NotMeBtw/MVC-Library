@@ -67,6 +67,7 @@ namespace MVCLibrary.App_Start
             kernel.Bind<ILanguageService>().To<LanguageService>().InRequestScope();
             kernel.Bind<IAdminService>().To<AdminService>().InRequestScope();
             kernel.Bind<ICategoryRepository>().To<CategoryRepository>().InRequestScope();
+            kernel.Bind<IBookRepository>().To<BookRepository>().InRequestScope();
 
         }
     }
