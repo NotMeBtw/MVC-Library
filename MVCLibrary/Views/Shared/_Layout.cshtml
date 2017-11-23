@@ -21,9 +21,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink(MVCLibrary.Resources.HomeTexts.Home, "Index", "Home")</li>
+                    <li>@Html.ActionLink(MVCLibrary.Resources.HomeTexts.About, "About", "Home")</li>
+                    <li>@Html.ActionLink(MVCLibrary.Resources.HomeTexts.Contact, "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Polish", "Change", "Language", new { Language = "pl" }, null)</li>
+                    <li>@Html.ActionLink("English", "Change", "Language", new { Language = "en" }, null)</li>
+
                 </ul>
                 @Html.Partial("_LoginPartial")
                 <div class="col-md-4">

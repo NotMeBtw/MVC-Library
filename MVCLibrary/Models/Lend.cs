@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MVCLibrary.Models
 {
-    public class Borrowing
+    public class Lend
     {
         public int Id { get; set; }
 

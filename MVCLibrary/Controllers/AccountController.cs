@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using MVCLibrary.Models.Views;
+using MVCLibrary.ViewModels;
 using MVCLibrary.Models;
 
 namespace MVCLibrary.Controllers

@@ -224,22 +224,35 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IServices\ILanguageService.cs" />
     <Compile Include="Migrations\201711231110402_firstMigration.cs" />
     <Compile Include="Migrations\201711231110402_firstMigration.Designer.cs">
       <DependentUpon>201711231110402_firstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MVCLIbraryContext.cs" />
-    <Compile Include="Models\Views\AccountViewModels.cs" />
+    <Compile Include="Resources\HomeTexts.pl.Designer.cs">
+      <DependentUpon>HomeTexts.pl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\HomeTexts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeTexts.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\LanguageService.cs" />
+    <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\File.cs" />
-    <Compile Include="Models\Borrowing.cs" />
-    <Compile Include="Models\Views\ManageViewModels.cs" />
+    <Compile Include="Models\Lend.cs" />
+    <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\QueueBook.cs" />
     <Compile Include="Models\SearchHistory.cs" />
     <Compile Include="Models\Tag.cs" />
@@ -312,10 +325,14 @@
     <Content Include="Views\Admin\AddBook.cshtml" />
     <Content Include="Views\Admin\AddAuthor.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Shared\_LanguagePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="IRepository\" />
+    <Folder Include="Repository\" />
     <Folder Include="Scripts\controllers\" />
+    <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -333,6 +350,14 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711231110402_firstMigration.resx">
       <DependentUpon>201711231110402_firstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HomeTexts.pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeTexts.pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HomeTexts.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeTexts.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

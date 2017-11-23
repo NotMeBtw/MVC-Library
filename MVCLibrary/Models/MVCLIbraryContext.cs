@@ -25,7 +25,7 @@ namespace MVCLibrary.Models
         }
 
         public DbSet<Book> Books { get; set; }
-        public DbSet<Borrowing> Borrows { get; set; }
+        public DbSet<Lend> Borrows { get; set; }
         public DbSet<File> Files { get; set; }
         public DbSet<QueueBook> Queues { get; set; }
         public DbSet<SearchHistory> Search { get; set; }

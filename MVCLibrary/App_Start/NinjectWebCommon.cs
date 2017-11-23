@@ -13,7 +13,9 @@ namespace MVCLibrary.App_Start
     using System.Web.Http;
     using Ninject.Web.Common.WebHost;
     using Ninject.Web.WebApi;
-
+    using MVCLibrary.Models;
+    using MVCLibrary.IServices;
+    using MVCLibrary.Services;
 
     public static class NinjectWebCommon
     {
@@ -57,7 +59,10 @@ namespace MVCLibrary.App_Start
         }
 
         private static void RegisterServices(IKernel kernel)
-        { 
+        {
+
+            kernel.Bind<MVCLIbraryContext>().ToSelf().InRequestScope();
+            kernel.Bind<ILanguageService>().To<LanguageService>().InRequestScope();
         }
     }
 }
