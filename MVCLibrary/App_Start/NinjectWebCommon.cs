@@ -16,6 +16,8 @@ namespace MVCLibrary.App_Start
     using MVCLibrary.Models;
     using MVCLibrary.IServices;
     using MVCLibrary.Services;
+    using MVCLibrary.IRepository;
+    using MVCLibrary.Repository;
 
     public static class NinjectWebCommon
     {
@@ -63,6 +65,9 @@ namespace MVCLibrary.App_Start
 
             kernel.Bind<MVCLIbraryContext>().ToSelf().InRequestScope();
             kernel.Bind<ILanguageService>().To<LanguageService>().InRequestScope();
+            kernel.Bind<IAdminService>().To<AdminService>().InRequestScope();
+            kernel.Bind<ICategoryRepository>().To<CategoryRepository>().InRequestScope();
+
         }
     }
 }

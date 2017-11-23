@@ -31,6 +31,8 @@ namespace MVCLibrary.Models
         public DbSet<SearchHistory> Search { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Category> Category { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

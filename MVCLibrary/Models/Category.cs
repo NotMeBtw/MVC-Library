@@ -12,6 +12,8 @@ namespace MVCLibrary.Models
 
         public string Name { get; set; }
 
+        public int? RootCategoryId { get; set; }
+
         public virtual Category RootCategory { get; set; }
     }
 }
