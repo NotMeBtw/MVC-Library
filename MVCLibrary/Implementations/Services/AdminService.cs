@@ -21,27 +21,28 @@ namespace MVCLibrary.Services
             _bookRepository = bookRepository;
         }
 
-        public bool AddNewBook(AddBookViewModel addBookVM)
+        public bool AddNewBook(AddBookViewModel model)
         {
-            if (addBookVM == null)
+            if (model == null)
                 return false;
 
-            var category = _categoryRepository.GetCategoryById(int.Parse(addBookVM.SelectedCategoryId));
+            var category = _categoryRepository.GetCategoryById(int.Parse(model.SelectedCategoryId));
 
             if (category == null)
                 return false;
 
             var book = new Book()
             {
-                Author = addBookVM.Author,
-                Title = addBookVM.Title,
-                ISBN = addBookVM.ISBN,
+                Author = model.Author,
+                Title = model.Title,
+                ISBN = model.ISBN,
                 Category = category
             };
 
             try
             {
                 _bookRepository.AddBook(book);
+
                 return true;
             }
             catch

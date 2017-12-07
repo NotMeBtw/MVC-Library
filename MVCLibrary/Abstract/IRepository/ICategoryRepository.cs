@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace MVCLibrary.IRepository
 {
-    public interface IBookRepository
+    public interface ICategoryRepository
     {
-        bool AddBook(Book book);
-        
+        IEnumerable<Category> GetAllCategories();
+
+        Category GetCategoryById(int id);
     }
 }

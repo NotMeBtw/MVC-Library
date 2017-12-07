@@ -229,10 +229,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="IRepository\IBookRepository.cs" />
-    <Compile Include="IRepository\ICategoryRepository.cs" />
-    <Compile Include="IServices\IAdminService.cs" />
-    <Compile Include="IServices\ILanguageService.cs" />
+    <Compile Include="Abstract\IRepository\IBookRepository.cs" />
+    <Compile Include="Abstract\IRepository\ICategoryRepository.cs" />
+    <Compile Include="Abstract\IServices\IAdminService.cs" />
+    <Compile Include="Abstract\IServices\ILanguageService.cs" />
     <Compile Include="Migrations\201711231110402_firstMigration.cs" />
     <Compile Include="Migrations\201711231110402_firstMigration.Designer.cs">
       <DependentUpon>201711231110402_firstMigration.cs</DependentUpon>
@@ -277,11 +277,11 @@
     <Compile Include="Migrations\201711231608268_12.Designer.cs">
       <DependentUpon>201711231608268_12.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\MVCLIbraryContext.cs" />
+    <Compile Include="DAL\Configuration.cs" />
+    <Compile Include="DAL\MVCLIbraryContext.cs" />
     <Compile Include="Models\Queue.cs" />
-    <Compile Include="Repository\BookRepository.cs" />
-    <Compile Include="Repository\CategoryRepository.cs" />
+    <Compile Include="Implementations\Repository\BookRepository.cs" />
+    <Compile Include="Implementations\Repository\CategoryRepository.cs" />
     <Compile Include="Resources\HomeTexts.pl.Designer.cs">
       <DependentUpon>HomeTexts.pl.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -292,8 +292,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HomeTexts.resx</DependentUpon>
     </Compile>
-    <Compile Include="Services\AdminService.cs" />
-    <Compile Include="Services\LanguageService.cs" />
+    <Compile Include="Implementations\Services\AdminService.cs" />
+    <Compile Include="Implementations\Services\LanguageService.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Category.cs" />

@@ -13,11 +13,11 @@ namespace MVCLibrary.Controllers
     public class AdminController : Controller
     {
         // GET: Admin
-        private readonly IAdminService _bookService;
+        private readonly IAdminService _adminService;
 
-        public AdminController(IAdminService bookService)
+        public AdminController(IAdminService adminService)
         {
-            _bookService = bookService;
+            _adminService = adminService;
         }
 
         public ActionResult Index()
@@ -26,12 +26,13 @@ namespace MVCLibrary.Controllers
         }
 
         [System.Web.Mvc.HttpGet]
-        public ActionResult AddBook() => View(_bookService.GetAddBookVM());
+        public ActionResult AddBook() => View(_adminService.GetAddBookVM());
         
         [System.Web.Mvc.HttpPost]
         public ActionResult AddBook([FromBody]AddBookViewModel b)
         {
-            _bookService.AddNewBook(b);
+            _adminService.AddNewBook(b);
+
            return RedirectToAction("Index");
         }
 
