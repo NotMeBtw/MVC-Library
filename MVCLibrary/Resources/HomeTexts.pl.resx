@@ -121,6 +121,14 @@
     <value>O nas</value>
     <comment>O nas</comment>
   </data>
+  <data name="AddNewBook" xml:space="preserve">
+    <value>Dodaj nową</value>
+    <comment>Dodaj nową książkę</comment>
+  </data>
+  <data name="Books" xml:space="preserve">
+    <value>Książki</value>
+    <comment>Książki</comment>
+  </data>
   <data name="Contact" xml:space="preserve">
     <value>Kontakt</value>
     <comment>Kontakt</comment>

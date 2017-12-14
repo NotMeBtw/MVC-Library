@@ -6,49 +6,112 @@
     <title>@ViewBag.Title - MVC Library</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+   
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("MVC Library", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink(MVCLibrary.Resources.HomeTexts.Home, "Index", "Home")</li>
-                    <li>@Html.ActionLink(MVCLibrary.Resources.HomeTexts.About, "About", "Home")</li>
-                    <li>@Html.ActionLink(MVCLibrary.Resources.HomeTexts.Contact, "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Polish", "Change", "Language", new { Language = "pl" }, null)</li>
-                    <li>@Html.ActionLink("English", "Change", "Language", new { Language = "en" }, null)</li>
+    @*@*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("MVC Library", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink(MVCLibrary.Resources.HomeTexts.Home, "Index", "Home")</li>
+                        <li>@Html.ActionLink(MVCLibrary.Resources.HomeTexts.About, "About", "Home")</li>
+                        <li>@Html.ActionLink(MVCLibrary.Resources.HomeTexts.Contact, "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Polish", "Change", "Language", new { Language = "pl" }, null)</li>
+                        <li>@Html.ActionLink("English", "Change", "Language", new { Language = "en" }, null)</li>
 
-                </ul>
-                @Html.Partial("_LoginPartial")
-                <div class="col-md-4">
-                    @using (@Html.BeginForm("Search", "Home", FormMethod.Get, new { @class = "navbar-form"}))
-                    {
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search..." name="search" id="search">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                    <div class="col-md-4">
+                        @using (@Html.BeginForm("Search", "Home", FormMethod.Get, new { @class = "navbar-form" }))
+                        {
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search..." name="search" id="search">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
                 </div>
             </div>
+        </div>*@
+
+
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Bootstrap Sidebar</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>Dummy Heading</p>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">@MVCLibrary.Resources.HomeTexts.Books</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li><a href="#">Wyszukaj</a></li>
+                        <li><a href="#">@MVCLibrary.Resources.HomeTexts.AddNewBook</a></li>
+                        <li><a href="#">Home 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li><a href="#">Page 1</a></li>
+                        <li><a href="#">Page 2</a></li>
+                        <li><a href="#">Page 3</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content" class="container body-content">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <div class="navbar-header">
+                        <button type="button" id="sidebarCollapse" class="navbar-btn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        @Html.Partial("_LoginPartial")
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Page</a></li>
+                            <li><a href="#">Page</a></li>
+                            <li><a href="#">Page</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - MVC Library</p>
+            </footer>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - MVC Library</p>
-        </footer>
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
@@ -56,5 +119,18 @@
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/controllers")
     @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+           $(document).ready(function () {
+               $('#sidebarCollapse').on('click', function () {
+                   $('#sidebar').toggleClass('active');
+                   $(this).toggleClass('active');
+               });
+           });
+    </script>
+
+
+
+
+
 </body>
 </html>

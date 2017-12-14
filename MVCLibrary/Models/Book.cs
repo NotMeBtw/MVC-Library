@@ -19,13 +19,13 @@ namespace MVCLibrary.Models
 
         public bool Available { get; set; }
 
+        public string[] Tags { get; set; }
+
         public virtual Category Category { get; set; }
 
         public virtual ICollection<Lend> Borrows { get; set; }
 
         public virtual ICollection<File> Files { get; set; }
-
-        public virtual ICollection<Tag> Tags { get; set; }
 
         public virtual ICollection<Queue> Queues { get; set; }
 

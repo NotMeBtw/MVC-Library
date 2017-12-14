@@ -27,7 +27,6 @@ namespace MVCLibrary.Models
         public DbSet<Book> Books { get; set; }
         public DbSet<Lend> Borrows { get; set; }
         public DbSet<File> Files { get; set; }
-        public DbSet<Tag> Tags { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Category> Category { get; set; }
 
