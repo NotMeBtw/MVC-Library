@@ -25,9 +25,22 @@ namespace MVCLibrary.Repository
                 _dbcontext.SaveChanges();
 
                 return true;
+
             }catch
             {
                 return false;
+            }
+        }
+
+        public IEnumerable<Book> GetAllBoks()
+        {
+            try
+            {
+                return _dbcontext.Books.ToList();
+            }
+            catch
+            {
+                return null;
             }
         }
     }

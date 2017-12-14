@@ -213,6 +213,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IServices\IBookService.cs" />
+    <Compile Include="Abstract\IServices\ICategoryService.cs" />
     <Compile Include="API\BooksController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -224,6 +226,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -234,6 +237,8 @@
     <Compile Include="Abstract\IRepository\ICategoryRepository.cs" />
     <Compile Include="Abstract\IServices\IAdminService.cs" />
     <Compile Include="Abstract\IServices\ILanguageService.cs" />
+    <Compile Include="Implementations\Services\BookService.cs" />
+    <Compile Include="Implementations\Services\CategoryService.cs" />
     <Compile Include="Migrations\201711231110402_firstMigration.cs" />
     <Compile Include="Migrations\201711231110402_firstMigration.Designer.cs">
       <DependentUpon>201711231110402_firstMigration.cs</DependentUpon>
@@ -305,6 +310,8 @@
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\Lend.cs" />
     <Compile Include="ViewModels\AdminViewModels.cs" />
+    <Compile Include="ViewModels\BookViewModels.cs" />
+    <Compile Include="ViewModels\CategoryViewModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -377,11 +384,13 @@
     <Content Include="Views\Admin\AddAuthor.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Shared\_LanguagePartial.cshtml" />
+    <Content Include="Views\Book\Index.cshtml" />
+    <Content Include="Views\Admin\AddCategory.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\controllers\" />
-    <Folder Include="Views\Book\" />
     <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>

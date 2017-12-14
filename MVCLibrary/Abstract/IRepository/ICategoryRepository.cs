@@ -12,5 +12,7 @@ namespace MVCLibrary.IRepository
         IEnumerable<Category> GetAllCategories();
 
         Category GetCategoryById(int id);
+
+        bool AddNewCategory(Category category);
     }
 }

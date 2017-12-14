@@ -10,5 +10,6 @@ namespace MVCLibrary.IRepository
     public interface IBookRepository
     {
         bool AddBook(Book book);
+        IEnumerable<Book> GetAllBoks();
     }
 }

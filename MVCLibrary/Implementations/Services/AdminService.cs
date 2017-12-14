@@ -51,6 +51,33 @@ namespace MVCLibrary.Services
             }
         }
 
+        public bool AddNewCategory(AddCategoryViewModel addCategoryVM)
+        {
+            try
+            {
+                if (addCategoryVM == null)
+                    return false;
+
+                var category = new Category
+                {
+                    Name = addCategoryVM.Name
+                };
+
+                if (addCategoryVM.SelectedCategoryId != null)
+                {
+                    var rootCategory = _categoryRepository.GetCategoryById(int.Parse(addCategoryVM.SelectedCategoryId));
+                    category.RootCategoryId = rootCategory.Id;
+                }
+
+                _categoryRepository.AddNewCategory(category);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public AddBookViewModel GetAddBookVM()
         {
             try
@@ -69,6 +96,34 @@ namespace MVCLibrary.Services
                 });
 
                 return new AddBookViewModel
+                {
+                    CategoryList = categoryDropDownList
+                };
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public AddCategoryViewModel GetAddCategoryVM()
+        {
+            try
+            {
+                var categoryList = _categoryRepository.GetAllCategories();
+
+                if (categoryList == null)
+                {
+                    return null;
+                }
+
+                var categoryDropDownList = categoryList.Select(x => new SelectListItem
+                {
+                    Value = x.Id.ToString(),
+                    Text = x.Name
+                });
+
+                return new AddCategoryViewModel
                 {
                     CategoryList = categoryDropDownList
                 };

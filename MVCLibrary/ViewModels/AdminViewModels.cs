@@ -10,15 +10,25 @@ namespace MVCLibrary.ViewModels
 {
     public class AddBookViewModel
     {
+        [Required]
         public string Title { get; set; }
-
+        [Required]
         public string Author { get; set; }
-
+        [Required]
         public string ISBN { get; set; }
+        [Required]
+        public string SelectedCategoryId { get; set; }
+        public IEnumerable<SelectListItem> CategoryList { get;set; }
+
+    }
+
+    public class AddCategoryViewModel
+    {
+        [Required]
+        public string Name { get; set; }
 
         public string SelectedCategoryId { get; set; }
-
-        public IEnumerable<SelectListItem> CategoryList { get;set; }
+        public IEnumerable<SelectListItem> CategoryList { get; set; }
 
     }
 }

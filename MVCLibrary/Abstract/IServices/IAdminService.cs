@@ -12,5 +12,9 @@ namespace MVCLibrary.IServices
         AddBookViewModel GetAddBookVM();
 
         bool AddNewBook(AddBookViewModel addBookVM);
+
+        bool AddNewCategory(AddCategoryViewModel addCategoryVM);
+
+        AddCategoryViewModel GetAddCategoryVM();
     }
 }

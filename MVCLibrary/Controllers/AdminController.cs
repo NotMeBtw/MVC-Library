@@ -24,22 +24,47 @@ namespace MVCLibrary.Controllers
         {
             return View();
         }
-
+        [System.Web.Http.Authorize(Roles = "Worker,Admin")]
         [System.Web.Mvc.HttpGet]
         public ActionResult AddBook() => View(_adminService.GetAddBookVM());
-        
+
+        [System.Web.Http.Authorize(Roles = "Worker,Admin")]
         [System.Web.Mvc.HttpPost]
         public ActionResult AddBook([FromBody]AddBookViewModel b)
         {
-            _adminService.AddNewBook(b);
+            if (ModelState.IsValid)
+            {
+                _adminService.AddNewBook(b);
 
-           return RedirectToAction("Index");
+                return RedirectToAction("Index","Book");
+            }
+            else
+            {
+                return View(_adminService.GetAddBookVM());
+            }
         }
 
-        // GET: Admin/AddAuthor
-        public ActionResult AddAuthor()
+        [System.Web.Http.Authorize(Roles = "Worker,Admin")]
+        [System.Web.Mvc.HttpGet]
+        public ActionResult AddCategory()
         {
-            return View();
+            return View(_adminService.GetAddCategoryVM());
+        }
+
+        [System.Web.Http.Authorize(Roles = "Worker,Admin")]
+        [System.Web.Mvc.HttpPost]
+        public ActionResult AddCategory(AddCategoryViewModel categoryVM) 
+        {
+            if (ModelState.IsValid)
+            {
+                _adminService.AddNewCategory(categoryVM);
+
+                return RedirectToAction("Index","Category");
+            }
+            else
+            {
+                return View(_adminService.GetAddCategoryVM());
+            }
         }
     }
 }

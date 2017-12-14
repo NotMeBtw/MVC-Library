@@ -121,9 +121,20 @@
     <value>About</value>
     <comment>O nas</comment>
   </data>
+  <data name="AddCategory" xml:space="preserve">
+    <value>Add New</value>
+  </data>
   <data name="AddNewBook" xml:space="preserve">
     <value>Add New</value>
     <comment>Dodaj nowa ksiazke</comment>
+  </data>
+  <data name="Book" xml:space="preserve">
+    <value>Book</value>
+    <comment>Książka</comment>
+  </data>
+  <data name="BookCategories" xml:space="preserve">
+    <value>Categories</value>
+    <comment>Kategorie Książek</comment>
   </data>
   <data name="Books" xml:space="preserve">
     <value>Books</value>
@@ -140,5 +151,9 @@
   <data name="Language" xml:space="preserve">
     <value>Language</value>
     <comment>Język</comment>
+  </data>
+  <data name="Library" xml:space="preserve">
+    <value>Library</value>
+    <comment>Biblioteka</comment>
   </data>
 </root>
