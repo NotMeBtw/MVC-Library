@@ -289,6 +289,8 @@
     <Compile Include="Migrations\201712141037067_second1.Designer.cs">
       <DependentUpon>201712141037067_second1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModelBinders\CartModelBinder.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Queue.cs" />
     <Compile Include="Implementations\Repository\BookRepository.cs" />
     <Compile Include="Implementations\Repository\CategoryRepository.cs" />
@@ -325,6 +327,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\shopingCart.png" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
@@ -387,6 +390,7 @@
     <Content Include="Views\Book\Index.cshtml" />
     <Content Include="Views\Admin\AddCategory.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Shared\_cartPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

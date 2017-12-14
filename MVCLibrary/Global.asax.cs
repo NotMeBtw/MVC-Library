@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MVCLibrary.ModelBinder;
+using MVCLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -19,7 +21,9 @@ namespace MVCLibrary
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
         }
+
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {

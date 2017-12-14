@@ -14,5 +14,7 @@ namespace MVCLibrary.ViewModels
 
         public string ISBN { get; set; }
 
+        public bool Available { get; set; }
+
     }
 }

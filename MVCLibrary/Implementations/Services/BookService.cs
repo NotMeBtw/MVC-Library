@@ -33,7 +33,8 @@ namespace MVCLibrary.Implementations.Services
                         {
                             Author = item.Author,
                             Title = item.Title,
-                            ISBN = item.ISBN
+                            ISBN = item.ISBN,
+                            Available = item.Available
                         }
                     );
                 }
