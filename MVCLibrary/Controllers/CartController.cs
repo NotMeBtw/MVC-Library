@@ -35,5 +35,30 @@ namespace MVCLibrary.Controllers
                 return Redirect(url);
             }
         }
+
+
+        public ActionResult ClearCart(Cart cart)
+        {
+            if (_cartService.ClearCart(cart))
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+        public ActionResult LendBooks(Cart cart)
+        {
+            if(_cartService.LendBooks(cart))
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
     }
 }

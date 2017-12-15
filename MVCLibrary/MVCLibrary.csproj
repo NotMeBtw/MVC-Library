@@ -213,6 +213,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IRepository\ILendRepository.cs" />
+    <Compile Include="Abstract\IRepository\IUserRepository.cs" />
     <Compile Include="Abstract\IServices\IBookService.cs" />
     <Compile Include="Abstract\IServices\ICartService.cs" />
     <Compile Include="Abstract\IServices\ICategoryService.cs" />
@@ -240,6 +242,8 @@
     <Compile Include="Abstract\IRepository\ICategoryRepository.cs" />
     <Compile Include="Abstract\IServices\IAdminService.cs" />
     <Compile Include="Abstract\IServices\ILanguageService.cs" />
+    <Compile Include="Implementations\Repository\LendRepository.cs" />
+    <Compile Include="Implementations\Repository\UserRepository.cs" />
     <Compile Include="Implementations\Services\BookService.cs" />
     <Compile Include="Implementations\Services\CartService.cs" />
     <Compile Include="Implementations\Services\CategoryService.cs" />
@@ -394,13 +398,11 @@
     <Content Include="Views\Book\Index.cshtml" />
     <Content Include="Views\Admin\AddCategory.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Shared\_cartPartial.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\controllers\" />
-    <Folder Include="Views\Language\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -21,7 +21,7 @@ namespace MVCLibrary.Controllers
         {
             Response.Cookies.Add(_language.Change(language));
 
-            return RedirectToAction("Index", "Home");
+            return Redirect(this.Request.UrlReferrer.AbsolutePath);
         }
     }
 }

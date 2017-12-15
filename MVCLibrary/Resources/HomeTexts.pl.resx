@@ -129,6 +129,16 @@
     <value>Dodaj nową</value>
     <comment>Dodaj nową książkę</comment>
   </data>
+  <data name="AddToCart" xml:space="preserve">
+    <value>Dodaj do koszyka</value>
+    <comment>Dodaj do koszyka</comment>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="Availability" xml:space="preserve">
+    <value>Dostępność</value>
+  </data>
   <data name="Book" xml:space="preserve">
     <value>Książka</value>
     <comment>Książka</comment>
@@ -145,6 +155,14 @@
     <value>Kontakt</value>
     <comment>Kontakt</comment>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+    <comment>Usuń</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
+    <comment>Edytuj</comment>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Stona Główna</value>
     <comment>Strona Główna</comment>
@@ -156,5 +174,9 @@
   <data name="Library" xml:space="preserve">
     <value>Biblioteka</value>
     <comment>Biblioteka</comment>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Tytuł</value>
+    <comment>Tytuł</comment>
   </data>
 </root>

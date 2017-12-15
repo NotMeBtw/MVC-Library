@@ -1,4 +1,5 @@
-﻿using MVCLibrary.Abstract.IServices;
+﻿using MVCLibrary.Abstract.IRepository;
+using MVCLibrary.Abstract.IServices;
 using MVCLibrary.IRepository;
 using MVCLibrary.Models;
 using System;
@@ -12,12 +13,18 @@ namespace MVCLibrary.Implementations.Services
     {
         private readonly IBookRepository _bookRepository;
 
-        public CartService(IBookRepository bookRepository)
+        private readonly ILendRepository _lendRepository;
+
+        private readonly IUserRepository _userRepository;
+
+        public CartService(IBookRepository bookRepository, ILendRepository lendRepository, IUserRepository userRepository)
         {
             _bookRepository = bookRepository;
+            _lendRepository = lendRepository;
+            _userRepository = userRepository;
         }
 
-        public bool AddBookToCart(Cart cart,int id)
+        public bool AddBookToCart(Cart cart, int id)
         {
             try
             {
@@ -27,6 +34,48 @@ namespace MVCLibrary.Implementations.Services
 
                 cart.books.Add(book);
 
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool ClearCart(Cart cart)
+        {
+            try
+            {
+                cart.books.Clear();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool LendBooks(Cart cart)
+        {
+            try
+            {
+                var user = _userRepository.GetUserByEmail(HttpContext.Current.User.Identity.Name);
+
+                foreach (var item in cart.books)
+                {
+                    if (item.Available == true)
+                    {
+                        var lend = new Lend
+                        {
+                            Book = item,
+                            User = user,
+                            DateBorrowed = DateTime.Now,
+                            State="Wypożyczona",
+                            DateReturn = DateTime.Now.AddDays(14)
+                        };
+                        _lendRepository.AddLend(lend);
+                    }
+                }
                 return true;
             }
             catch

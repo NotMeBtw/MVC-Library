@@ -5,7 +5,17 @@
 }
 
 <h2>Index</h2>
-
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger fade in">
+        <strong>Error!</strong> @ViewBag.ErrorMessage.
+    </div>
+}@if (ViewBag.SuccessMessage != null)
+{
+    <div class="alert alert-success alert-dismissable">
+        <strong>Success!</strong>@ViewBag.SuccessMessage
+    </div>
+}
 <table class="table ">
     <tr>
         <th>
@@ -41,11 +51,11 @@
             <td>
                 @if (Request.IsAuthenticated)
                 {
-                    @Html.ActionLink("Add", "AddBookToCart","Cart", new { id = item.Id }, new { @class = "btn btn-success" })
+                    @Html.ActionLink(MVCLibrary.Resources.HomeTexts.AddToCart, "AddBookToCart", "Cart", new { id = item.Id }, new { @class = "btn btn-success" })
                     if (User.IsInRole("Admin") || User.IsInRole("Worker"))
                     {
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ });
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ });
+                        @Html.ActionLink(MVCLibrary.Resources.HomeTexts.Edit, "Edit", new { /* id=item.PrimaryKey */ });
+                        @Html.ActionLink(MVCLibrary.Resources.HomeTexts.Delete, "Delete", new { /* id=item.PrimaryKey */ });
                     }
                 }
             </td>

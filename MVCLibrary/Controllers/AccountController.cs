@@ -397,6 +397,8 @@ namespace MVCLibrary.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
+            System.Web.HttpContext.Current.Session.Clear();
+            System.Web.HttpContext.Current.Session.Abandon();
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
         }
