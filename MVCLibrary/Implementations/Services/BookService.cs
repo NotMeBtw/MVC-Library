@@ -19,18 +19,19 @@ namespace MVCLibrary.Implementations.Services
 
         public IEnumerable<BookViewModel> GetBookViewModel()
         {
+            var bookViewModels = new List<BookViewModel>();
+
             try
             {
                 var books = _bookRepository.GetAllBoks();
-                if (books == null) return null;
-
-                var bookViewModels = new List<BookViewModel>();
+                if (books == null) return bookViewModels;
 
                 foreach (var item in books)
                 {
                     bookViewModels.Add(
                         new BookViewModel
                         {
+                            Id = item.Id,
                             Author = item.Author,
                             Title = item.Title,
                             ISBN = item.ISBN,
@@ -38,12 +39,11 @@ namespace MVCLibrary.Implementations.Services
                         }
                     );
                 }
-
                 return bookViewModels;
             }
             catch
             {
-                return null;
+                return bookViewModels;
             }
         }
     }

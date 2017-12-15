@@ -20,19 +20,19 @@ namespace MVCLibrary.Implementations.Services
 
         public IEnumerable<CategoryViewModel> GetCategories()
         {
+            var categoriesVM = new List<CategoryViewModel>();
+
             try
             {
                 var categories = _categoryRpository.GetAllCategories();
 
-                if (categories == null) return null;
-
-                var categoriesVM = new List<CategoryViewModel>();
+                if (categories == null) return categoriesVM;
 
                 foreach (var item in categories)
                 {
                     var rootCategor = categories.FirstOrDefault(c => c.Id == item.RootCategoryId);
 
-                    string name = string.Empty;
+                    var name = string.Empty;
 
                     if (rootCategor != null)
                         name = rootCategor.Name;
@@ -47,7 +47,7 @@ namespace MVCLibrary.Implementations.Services
             }
             catch
             {
-                return null;
+                return categoriesVM;
             }
         }
     }

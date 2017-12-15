@@ -11,5 +11,6 @@ namespace MVCLibrary.IRepository
     {
         bool AddBook(Book book);
         IEnumerable<Book> GetAllBoks();
+        Book GetBookById(int id);
     }
 }

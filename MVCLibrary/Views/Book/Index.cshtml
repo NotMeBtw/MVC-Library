@@ -41,7 +41,7 @@
             <td>
                 @if (Request.IsAuthenticated)
                 {
-                    <button class="btn btn-success">Add</button>
+                    @Html.ActionLink("Add", "AddBookToCart","Cart", new { id = item.Id }, new { @class = "btn btn-success" })
                     if (User.IsInRole("Admin") || User.IsInRole("Worker"))
                     {
                         @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ });

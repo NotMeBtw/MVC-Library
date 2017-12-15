@@ -26,7 +26,8 @@ namespace MVCLibrary.Repository
 
                 return true;
 
-            }catch
+            }
+            catch
             {
                 return false;
             }
@@ -37,6 +38,18 @@ namespace MVCLibrary.Repository
             try
             {
                 return _dbcontext.Books.ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public Book GetBookById(int id)
+        {
+            try
+            {
+                return _dbcontext.Books.FirstOrDefault(b => b.Id == id);
             }
             catch
             {

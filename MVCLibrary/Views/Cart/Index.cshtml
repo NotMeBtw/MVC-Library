@@ -1,0 +1,27 @@
+﻿@model MVCLibrary.Models.Cart
+
+@{
+    ViewBag.Title = "Index";
+}
+<table class="table">
+    @foreach (var item in Model.books)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISBN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Available)
+            </td>
+
+        </tr>
+
+    }
+
+</table>

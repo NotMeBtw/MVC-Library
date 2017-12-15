@@ -214,8 +214,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IServices\IBookService.cs" />
+    <Compile Include="Abstract\IServices\ICartService.cs" />
     <Compile Include="Abstract\IServices\ICategoryService.cs" />
     <Compile Include="API\BooksController.cs" />
+    <Compile Include="API\CartController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -226,6 +228,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
@@ -238,6 +241,7 @@
     <Compile Include="Abstract\IServices\IAdminService.cs" />
     <Compile Include="Abstract\IServices\ILanguageService.cs" />
     <Compile Include="Implementations\Services\BookService.cs" />
+    <Compile Include="Implementations\Services\CartService.cs" />
     <Compile Include="Implementations\Services\CategoryService.cs" />
     <Compile Include="Migrations\201711231110402_firstMigration.cs" />
     <Compile Include="Migrations\201711231110402_firstMigration.Designer.cs">
@@ -391,6 +395,7 @@
     <Content Include="Views\Admin\AddCategory.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Shared\_cartPartial.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

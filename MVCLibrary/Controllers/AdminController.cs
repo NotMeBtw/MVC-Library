@@ -24,6 +24,7 @@ namespace MVCLibrary.Controllers
         {
             return View();
         }
+
         [System.Web.Http.Authorize(Roles = "Worker,Admin")]
         [System.Web.Mvc.HttpGet]
         public ActionResult AddBook() => View(_adminService.GetAddBookVM());
@@ -32,11 +33,9 @@ namespace MVCLibrary.Controllers
         [System.Web.Mvc.HttpPost]
         public ActionResult AddBook([FromBody]AddBookViewModel b)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && _adminService.AddNewBook(b))
             {
-                _adminService.AddNewBook(b);
-
-                return RedirectToAction("Index","Book");
+                return RedirectToAction("Index", "Book");
             }
             else
             {
@@ -53,13 +52,11 @@ namespace MVCLibrary.Controllers
 
         [System.Web.Http.Authorize(Roles = "Worker,Admin")]
         [System.Web.Mvc.HttpPost]
-        public ActionResult AddCategory(AddCategoryViewModel categoryVM) 
+        public ActionResult AddCategory(AddCategoryViewModel categoryVM)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && _adminService.AddNewCategory(categoryVM))
             {
-                _adminService.AddNewCategory(categoryVM);
-
-                return RedirectToAction("Index","Category");
+               return RedirectToAction("Index", "Category");
             }
             else
             {

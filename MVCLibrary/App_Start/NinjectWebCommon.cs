@@ -72,6 +72,7 @@ namespace MVCLibrary.App_Start
             kernel.Bind<IBookRepository>().To<BookRepository>().InRequestScope();
             kernel.Bind<IBookService>().To<BookService>().InRequestScope();
             kernel.Bind<ICategoryService>().To<CategoryService>().InRequestScope();
+            kernel.Bind<ICartService>().To<CartService>().InRequestScope();
 
         }
     }
