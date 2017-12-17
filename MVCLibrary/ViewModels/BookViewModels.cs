@@ -22,4 +22,15 @@ namespace MVCLibrary.ViewModels
         public bool Available { get; set; }
 
     }
+
+    public class CartBookViewModel
+    {
+        public Cart cart { get; set; }
+        public List<BookViewModel> BookViewModels { get; set; }
+
+        public CartBookViewModel()
+        {
+            BookViewModels = new List<BookViewModel>();
+        }
+    }
 }

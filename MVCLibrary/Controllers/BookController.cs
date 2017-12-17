@@ -1,4 +1,5 @@
 ﻿using MVCLibrary.Abstract.IServices;
+using MVCLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,9 @@ namespace MVCLibrary.Controllers
         }
 
         // GET: Book
-        public ActionResult Index()
+        public ActionResult Index(Cart cart)
         {
-            return View(_bookService.GetBookViewModel());
+            return View(_bookService.GetBookViewModel(cart));
         }
 
         public ActionResult Search()
