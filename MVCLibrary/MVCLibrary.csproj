@@ -234,6 +234,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
+    <Compile Include="Controllers\LendController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -296,6 +297,14 @@
     <Compile Include="Migrations\201712141037067_second1.cs" />
     <Compile Include="Migrations\201712141037067_second1.Designer.cs">
       <DependentUpon>201712141037067_second1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712161036495_a.cs" />
+    <Compile Include="Migrations\201712161036495_a.Designer.cs">
+      <DependentUpon>201712161036495_a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712161051019_b.cs" />
+    <Compile Include="Migrations\201712161051019_b.Designer.cs">
+      <DependentUpon>201712161051019_b.cs</DependentUpon>
     </Compile>
     <Compile Include="ModelBinders\CartModelBinder.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -399,6 +408,9 @@
     <Content Include="Views\Admin\AddCategory.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Admin\GetClients.cshtml" />
+    <Content Include="Views\Book\Search.cshtml" />
+    <Content Include="Views\Lend\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -453,6 +465,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712141037067_second1.resx">
       <DependentUpon>201712141037067_second1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712161036495_a.resx">
+      <DependentUpon>201712161036495_a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712161051019_b.resx">
+      <DependentUpon>201712161051019_b.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\HomeTexts.pl.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -70,13 +70,31 @@ namespace MVCLibrary.Implementations.Services
                             Book = item,
                             User = user,
                             DateBorrowed = DateTime.Now,
-                            State="Wypożyczona",
+                            State = "Wypożyczona",
                             DateReturn = DateTime.Now.AddDays(14)
                         };
                         _lendRepository.AddLend(lend);
                     }
                 }
                 return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool RemoveBook(Cart cart, int id)
+        {
+            try
+            {
+                var book = cart.books.FirstOrDefault(b => b.Id == id);
+                if (book != null)
+                {
+                    cart.books.Remove(book);
+                    return true;
+                }
+                return false;
             }
             catch
             {

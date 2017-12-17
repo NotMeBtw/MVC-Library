@@ -1,4 +1,5 @@
-﻿using MVCLibrary.ViewModels;
+﻿using MVCLibrary.Models;
+using MVCLibrary.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,7 @@ namespace MVCLibrary.IServices
         bool AddNewCategory(AddCategoryViewModel addCategoryVM);
 
         AddCategoryViewModel GetAddCategoryVM();
+
+        IEnumerable<User> GetAllClients();
     }
 }

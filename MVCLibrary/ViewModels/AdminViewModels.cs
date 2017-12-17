@@ -20,6 +20,8 @@ namespace MVCLibrary.ViewModels
         public string SelectedCategoryId { get; set; }
         public IEnumerable<SelectListItem> CategoryList { get;set; }
 
+        public string Tags { get; set; }
+
     }
 
     public class AddCategoryViewModel

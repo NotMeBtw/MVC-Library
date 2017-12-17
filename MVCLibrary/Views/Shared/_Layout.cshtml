@@ -63,8 +63,8 @@
                     <li>
                         <a href="#clientsSubmenu" data-toggle="collapse" aria-expanded="false">Czytelnicy</a>
                         <ul class="collapse list-unstyled" id="clientsSubmenu">
-                            <li><a href="#">Spis czytelników</a></li>
-                            <li><a href="#">Wypożyczenia</a></li>
+                          <li> @Html.ActionLink("Spis klientów", "GetClients", "Admin")</li>
+                            <li>@Html.ActionLink("Wypożyczenia", "Index", "Lend")</li>
                             <li><a href="#">Wyszukaj</a></li>
                         </ul>
                     </li>

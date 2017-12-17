@@ -15,5 +15,7 @@ namespace MVCLibrary.Abstract.IServices
 
         bool LendBooks(Cart cart);
 
+        bool RemoveBook(Cart cart, int id);
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using MVCLibrary.IRepository;
+﻿using MVCLibrary.Abstract.IRepository;
+using MVCLibrary.IRepository;
 using MVCLibrary.IServices;
 using MVCLibrary.Models;
 using MVCLibrary.ViewModels;
@@ -14,11 +15,13 @@ namespace MVCLibrary.Services
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IBookRepository _bookRepository;
+        private readonly IUserRepository _userRepository;
 
-        public AdminService(ICategoryRepository categoryRepository, IBookRepository bookRepository)
+        public AdminService(ICategoryRepository categoryRepository, IBookRepository bookRepository, IUserRepository userRepository)
         {
             _categoryRepository = categoryRepository;
             _bookRepository = bookRepository;
+            _userRepository = userRepository;
         }
 
         public bool AddNewBook(AddBookViewModel model)
@@ -31,12 +34,14 @@ namespace MVCLibrary.Services
             if (category == null)
                 return false;
 
+
             var book = new Book()
             {
                 Author = model.Author,
                 Title = model.Title,
                 ISBN = model.ISBN,
-                Category = category
+                Category = category,
+                Tags=model.Tags
             };
 
             try
@@ -131,6 +136,18 @@ namespace MVCLibrary.Services
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+
+        public IEnumerable<User> GetAllClients()
+        {
+            try
+            {
+               return _userRepository.GetClients();
+            }
+            catch
+            {
+                return null;
             }
         }
     }

@@ -63,5 +63,10 @@ namespace MVCLibrary.Controllers
                 return View(_adminService.GetAddCategoryVM());
             }
         }
+
+        public ActionResult GetClients()
+        {
+            return View(_adminService.GetAllClients());
+        }
     }
 }

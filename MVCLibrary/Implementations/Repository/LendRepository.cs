@@ -31,5 +31,17 @@ namespace MVCLibrary.Implementations.Repository
                 return false;
             }
         }
+
+        public IEnumerable<Lend> GetALLLends()
+        {
+            try
+            {
+                return _dbcontext.Borrows.ToList();
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

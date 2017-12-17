@@ -11,5 +11,7 @@ namespace MVCLibrary.Abstract.IRepository
     {
 
         bool AddLend(Lend l);
+
+        IEnumerable<Lend> GetALLLends();
     }
 }

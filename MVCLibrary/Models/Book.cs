@@ -19,7 +19,7 @@ namespace MVCLibrary.Models
 
         public bool Available { get; set; }
 
-        public string[] Tags { get; set; }
+        public string Tags { get; set; }
 
         public virtual Category Category { get; set; }
 

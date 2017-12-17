@@ -39,7 +39,7 @@ namespace MVCLibrary.Repository
             {
                 return _dbcontext.Books.ToList();
             }
-            catch
+            catch(Exception e)
             {
                 return null;
             }

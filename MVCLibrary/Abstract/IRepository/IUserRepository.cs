@@ -12,5 +12,7 @@ namespace MVCLibrary.Abstract.IRepository
 
         User GetUserByEmail(string email);
 
+        IEnumerable<User> GetClients();
+
     }
 }

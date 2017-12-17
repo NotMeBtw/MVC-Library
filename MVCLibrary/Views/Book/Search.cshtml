@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+<div class="row">
+    <div class="col">
+        <h2>Add book</h2>
+        @using (Html.BeginForm("Search", "Book", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <label>Search</label>
+            <input />
+        }
+    </div>
+</div>

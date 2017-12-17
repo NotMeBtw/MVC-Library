@@ -51,7 +51,19 @@ namespace MVCLibrary.Controllers
 
         public ActionResult LendBooks(Cart cart)
         {
-            if(_cartService.LendBooks(cart))
+            if (_cartService.LendBooks(cart))
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+        public ActionResult RemoveBook(Cart cart, int id)
+        {
+            if (_cartService.RemoveBook(cart, id))
             {
                 return RedirectToAction("Index");
             }

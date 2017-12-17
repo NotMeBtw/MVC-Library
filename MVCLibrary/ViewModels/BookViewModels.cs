@@ -18,6 +18,7 @@ namespace MVCLibrary.ViewModels
 
         public string ISBN { get; set; }
         [Display(Name = nameof(HomeTexts.Availability), ResourceType = typeof(HomeTexts))]
+
         public bool Available { get; set; }
 
     }

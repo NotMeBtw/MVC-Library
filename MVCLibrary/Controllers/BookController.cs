@@ -22,6 +22,11 @@ namespace MVCLibrary.Controllers
             return View(_bookService.GetBookViewModel());
         }
 
+        public ActionResult Search()
+        {
+            return View();
+        }
+
 
 
     }

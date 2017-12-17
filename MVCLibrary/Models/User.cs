@@ -16,6 +16,10 @@ namespace MVCLibrary.Models
 
         public string Surname { get; set; }
 
+        public int BorrowLimit { get; set; }
+
+        public int WaitLimit { get; set; }
+
         public virtual ICollection<Lend> Borrows { get; set; }
 
         public virtual ICollection<Queue> Queues { get; set; }
