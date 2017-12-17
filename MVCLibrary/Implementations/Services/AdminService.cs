@@ -41,7 +41,8 @@ namespace MVCLibrary.Services
                 Title = model.Title,
                 ISBN = model.ISBN,
                 Category = category,
-                Tags=model.Tags
+                Tags=model.Tags,
+                Available=true
             };
 
             try

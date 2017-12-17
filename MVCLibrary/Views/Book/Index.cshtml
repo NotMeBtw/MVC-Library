@@ -1,39 +1,59 @@
-﻿@model IEnumerable<MVCLibrary.ViewModels.BookViewModel>
+﻿@model MVCLibrary.ViewModels.CartBookViewModel
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-@if (ViewBag.ErrorMessage != null)
+@if (Model.cart != null)
 {
-    <div class="alert alert-danger fade in">
-        <strong>Error!</strong> @ViewBag.ErrorMessage.
-    </div>
-}@if (ViewBag.SuccessMessage != null)
-{
-    <div class="alert alert-success alert-dismissable">
-        <strong>Success!</strong>@ViewBag.SuccessMessage
-    </div>
+    if (Model.cart.books.Count != 0)
+    {
+        <table class="table">
+            @foreach (var item in Model.cart.books)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ISBN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Available)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Usuń", "RemoveBook", "Cart", new { id = item.Id }, new { @class = "btn btn-success" })
+                    </td>
+                </tr>
+
+            }
+        </table>
+        @Html.ActionLink("Wyczyść koszyk", "ClearCart", "Cart", null, new { @class = "btn btn-success" })
+        @Html.ActionLink("Wypożycz ksiązki", "LendBooks", "Cart", null, new { @class = "btn btn-success" })
+
+    }
 }
 <table class="table ">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            Title
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Author)
+            Author
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ISBN)
+            ISBN
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Available)
+           Available
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.BookViewModels)
             {
         <tr>
             <td>

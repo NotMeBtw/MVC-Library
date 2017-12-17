@@ -41,11 +41,11 @@ namespace MVCLibrary.Controllers
         {
             if (_cartService.ClearCart(cart))
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Book");
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Book");
             }
         }
 
@@ -53,11 +53,11 @@ namespace MVCLibrary.Controllers
         {
             if (_cartService.LendBooks(cart))
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Book");
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Book");
             }
         }
 
@@ -65,11 +65,11 @@ namespace MVCLibrary.Controllers
         {
             if (_cartService.RemoveBook(cart, id))
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Book");
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Book");
             }
         }
     }
