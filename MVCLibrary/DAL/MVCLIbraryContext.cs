@@ -15,7 +15,7 @@ namespace MVCLibrary.Models
         // If you wish to target a different database and/or database provider, modify the 'MVCLIbraryContext' 
         // connection string in the application configuration file.
         public MVCLIbraryContext()
-            : base("MVCLIbraryContext")
+            : base("DefaultConnection")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }

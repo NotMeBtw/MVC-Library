@@ -46,12 +46,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -151,6 +145,12 @@
     <Reference Include="System.Web.Http.WebHost">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -248,12 +248,64 @@
     <Compile Include="Implementations\Services\BookService.cs" />
     <Compile Include="Implementations\Services\CartService.cs" />
     <Compile Include="Implementations\Services\CategoryService.cs" />
-    <Compile Include="DAL\MVCLIbraryContext.cs" />
-    <Compile Include="Migrations\201712171319517_a.cs" />
-    <Compile Include="Migrations\201712171319517_a.Designer.cs">
-      <DependentUpon>201712171319517_a.cs</DependentUpon>
+    <Compile Include="Migrations\201711231110402_firstMigration.cs" />
+    <Compile Include="Migrations\201711231110402_firstMigration.Designer.cs">
+      <DependentUpon>201711231110402_firstMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\201711231329233_second.cs" />
+    <Compile Include="Migrations\201711231329233_second.Designer.cs">
+      <DependentUpon>201711231329233_second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231334558_third.cs" />
+    <Compile Include="Migrations\201711231334558_third.Designer.cs">
+      <DependentUpon>201711231334558_third.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231415099_thirde.cs" />
+    <Compile Include="Migrations\201711231415099_thirde.Designer.cs">
+      <DependentUpon>201711231415099_thirde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231418034_thourth.cs" />
+    <Compile Include="Migrations\201711231418034_thourth.Designer.cs">
+      <DependentUpon>201711231418034_thourth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231538482_5.cs" />
+    <Compile Include="Migrations\201711231538482_5.Designer.cs">
+      <DependentUpon>201711231538482_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231552239_6.cs" />
+    <Compile Include="Migrations\201711231552239_6.Designer.cs">
+      <DependentUpon>201711231552239_6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231553272_j.cs" />
+    <Compile Include="Migrations\201711231553272_j.Designer.cs">
+      <DependentUpon>201711231553272_j.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231601071_10.cs" />
+    <Compile Include="Migrations\201711231601071_10.Designer.cs">
+      <DependentUpon>201711231601071_10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231606565_11.cs" />
+    <Compile Include="Migrations\201711231606565_11.Designer.cs">
+      <DependentUpon>201711231606565_11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711231608268_12.cs" />
+    <Compile Include="Migrations\201711231608268_12.Designer.cs">
+      <DependentUpon>201711231608268_12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Configuration.cs" />
+    <Compile Include="DAL\MVCLIbraryContext.cs" />
+    <Compile Include="Migrations\201712141037067_second1.cs" />
+    <Compile Include="Migrations\201712141037067_second1.Designer.cs">
+      <DependentUpon>201712141037067_second1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712161036495_a.cs" />
+    <Compile Include="Migrations\201712161036495_a.Designer.cs">
+      <DependentUpon>201712161036495_a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712161051019_b.cs" />
+    <Compile Include="Migrations\201712161051019_b.Designer.cs">
+      <DependentUpon>201712161051019_b.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModelBinders\CartModelBinder.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Queue.cs" />
@@ -378,8 +430,47 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712171319517_a.resx">
-      <DependentUpon>201712171319517_a.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711231110402_firstMigration.resx">
+      <DependentUpon>201711231110402_firstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231329233_second.resx">
+      <DependentUpon>201711231329233_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231334558_third.resx">
+      <DependentUpon>201711231334558_third.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231415099_thirde.resx">
+      <DependentUpon>201711231415099_thirde.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231418034_thourth.resx">
+      <DependentUpon>201711231418034_thourth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231538482_5.resx">
+      <DependentUpon>201711231538482_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231552239_6.resx">
+      <DependentUpon>201711231552239_6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231553272_j.resx">
+      <DependentUpon>201711231553272_j.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231601071_10.resx">
+      <DependentUpon>201711231601071_10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231606565_11.resx">
+      <DependentUpon>201711231606565_11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711231608268_12.resx">
+      <DependentUpon>201711231608268_12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712141037067_second1.resx">
+      <DependentUpon>201712141037067_second1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712161036495_a.resx">
+      <DependentUpon>201712161036495_a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712161051019_b.resx">
+      <DependentUpon>201712161051019_b.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\HomeTexts.pl.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

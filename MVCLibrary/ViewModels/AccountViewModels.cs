@@ -65,6 +65,7 @@ namespace MVCLibrary.ViewModels
     public class RegisterViewModel
     {
         [Required]
+        [EmailAddress]
         [Display(Name = "Name")]
         public string Name { get; set; }
 
