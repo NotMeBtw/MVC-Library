@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using MVCLibrary.ViewModels;
 using MVCLibrary.IRepository;
+using MVCLibrary.Models;
 
 namespace MVCLibrary.Implementations.Services
 {
@@ -17,18 +18,18 @@ namespace MVCLibrary.Implementations.Services
             _bookRepository = bookRepository;
         }
 
-        public IEnumerable<BookViewModel> GetBookViewModel()
+        public CartBookViewModel GetBookViewModel(Cart cart)
         {
-            var bookViewModels = new List<BookViewModel>();
-
+            var cartBookViewModel = new CartBookViewModel();
+            cartBookViewModel.cart = cart;
             try
             {
                 var books = _bookRepository.GetAllBoks();
-                if (books == null) return bookViewModels;
+                if (books == null) return cartBookViewModel;
 
                 foreach (var item in books)
                 {
-                    bookViewModels.Add(
+                    cartBookViewModel.BookViewModels.Add(
                         new BookViewModel
                         {
                             Id = item.Id,
@@ -39,11 +40,11 @@ namespace MVCLibrary.Implementations.Services
                         }
                     );
                 }
-                return bookViewModels;
+                return cartBookViewModel;
             }
             catch
             {
-                return bookViewModels;
+                return cartBookViewModel;
             }
         }
     }

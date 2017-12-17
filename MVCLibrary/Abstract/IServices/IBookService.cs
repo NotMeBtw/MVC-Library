@@ -1,4 +1,5 @@
-﻿using MVCLibrary.ViewModels;
+﻿using MVCLibrary.Models;
+using MVCLibrary.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace MVCLibrary.Abstract.IServices
 {
     public interface IBookService
     {
-       IEnumerable<BookViewModel> GetBookViewModel();
+       CartBookViewModel GetBookViewModel(Cart cart);
 
     }
 }
