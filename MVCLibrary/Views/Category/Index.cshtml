@@ -6,31 +6,47 @@
 
 
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ParrentName)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParrentName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
+<table class="table table-responsive" ng-controller="categoriesController">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParrentName)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr ng-if="editmode != @(item.Name)">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParrentName)
+                </td>
+                <td>
+                    <a class="btn btn-warning" ng-click="setEditMode(@(item.Name))">Edit</a>
+                    @Html.ActionLink("Delete", "Delete", null, new { @class = "btn btn-danger" /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+            <tr ng-if="editmode == @(item.Name)">
+                @using (Html.BeginForm("Edit", "Category", FormMethod.Post))
+                {
+                    <td>
+                        @Html.TextBoxFor(modelItem => item.Name, new { @class = "form-control" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(modelItem => item.ParrentName, new { @class = "form-control" })
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" ng-click="cancel()">Cancel</a>
+                        <input class="btn btn-success" type="submit" ng-click="submit()" value="Submit" />
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
 </table>
