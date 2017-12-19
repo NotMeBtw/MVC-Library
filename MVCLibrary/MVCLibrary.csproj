@@ -306,6 +306,10 @@
     <Compile Include="Migrations\201712161051019_b.Designer.cs">
       <DependentUpon>201712161051019_b.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712171929009_ab.cs" />
+    <Compile Include="Migrations\201712171929009_ab.Designer.cs">
+      <DependentUpon>201712171929009_ab.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModelBinders\CartModelBinder.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Queue.cs" />
@@ -331,6 +335,7 @@
     <Compile Include="ViewModels\AdminViewModels.cs" />
     <Compile Include="ViewModels\BookViewModels.cs" />
     <Compile Include="ViewModels\CategoryViewModels.cs" />
+    <Compile Include="ViewModels\LendViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -471,6 +476,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712161051019_b.resx">
       <DependentUpon>201712161051019_b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712171929009_ab.resx">
+      <DependentUpon>201712171929009_ab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\HomeTexts.pl.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

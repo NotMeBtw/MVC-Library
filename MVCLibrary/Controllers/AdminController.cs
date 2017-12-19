@@ -1,4 +1,6 @@
-﻿using MVCLibrary.IServices;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using MVCLibrary.IServices;
 using MVCLibrary.Models;
 using MVCLibrary.ViewModels;
 using System;
@@ -14,10 +16,16 @@ namespace MVCLibrary.Controllers
     {
         // GET: Admin
         private readonly IAdminService _adminService;
+        private readonly MVCLIbraryContext _dbcontext;
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
 
-        public AdminController(IAdminService adminService)
+        public AdminController(IAdminService adminService, MVCLIbraryContext dbcontext, ApplicationSignInManager signInManager, ApplicationUserManager userManager)
         {
             _adminService = adminService;
+            _dbcontext = dbcontext;
+            _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         public ActionResult Index()
@@ -64,9 +72,21 @@ namespace MVCLibrary.Controllers
             }
         }
 
-        public ActionResult GetClients()
+        public  ActionResult  GetClients()
         {
-            return View(_adminService.GetAllClients());
+
+
+            var roleStore = new RoleStore<IdentityRole>(_dbcontext);
+            var roleMngr = new RoleManager<IdentityRole>(roleStore);
+
+            var roles = roleMngr.Roles.ToList();
+
+            var role = roles.FirstOrDefault(r => r.Name == "Client");
+
+            var users = _dbcontext.User.Where(u => u.Roles.Any(r => r.RoleId == role.Id));
+
+
+            return View(users);
         }
     }
 }

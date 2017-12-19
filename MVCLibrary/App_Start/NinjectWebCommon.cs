@@ -22,6 +22,9 @@ namespace MVCLibrary.App_Start
     using MVCLibrary.Abstract.IServices;
     using MVCLibrary.Abstract.IRepository;
     using MVCLibrary.Implementations.Repository;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.Owin.Security;
 
     public static class NinjectWebCommon
     {
@@ -77,6 +80,9 @@ namespace MVCLibrary.App_Start
             kernel.Bind<IUserRepository>().To<UserRepository>().InRequestScope();
             kernel.Bind<ICategoryService>().To<CategoryService>().InRequestScope();
             kernel.Bind<ICartService>().To<CartService>().InRequestScope();
+            kernel.Bind<IUserStore<User>>().To<UserStore<User>>();
+            kernel.Bind<UserManager<User>>().ToSelf();
+            kernel.Bind<IAuthenticationManager>().ToMethod( c =>HttpContext.Current.GetOwinContext().Authentication).InRequestScope();
 
         }
     }

@@ -12,9 +12,12 @@ namespace MVCLibrary.Implementations.Repository
     public class UserRepository : IUserRepository
     {
         private readonly MVCLIbraryContext _dbcontext;
-        public UserRepository(MVCLIbraryContext dbcontext)
+        private  ApplicationUserManager _userManager;
+
+        public UserRepository(MVCLIbraryContext dbcontext, ApplicationUserManager userManager)
         {
             _dbcontext = dbcontext;
+            _userManager = userManager;
         }
 
         public IEnumerable<User> GetClients()
@@ -29,7 +32,7 @@ namespace MVCLibrary.Implementations.Repository
 
                 var role = roles.FirstOrDefault(r => r.Name == "Client");
 
-                return _dbcontext.User.Where(u=>u.Roles==role).ToList();
+                return _userManager.Users.Where(u => u.Roles.Any(r => r.RoleId == role.Id)).ToList();
             }
             catch (Exception e)
             {
@@ -42,6 +45,19 @@ namespace MVCLibrary.Implementations.Repository
             try
             {
                 return _dbcontext.User.FirstOrDefault(u => u.Email == email);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public User GetUserById(string id)
+        {
+
+            try
+            {
+                return _dbcontext.User.FirstOrDefault(u => u.Id == id);
             }
             catch
             {

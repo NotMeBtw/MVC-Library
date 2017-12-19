@@ -14,5 +14,7 @@ namespace MVCLibrary.Abstract.IRepository
 
         IEnumerable<User> GetClients();
 
+        User GetUserById(string id);
+
     }
 }

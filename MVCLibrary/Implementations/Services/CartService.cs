@@ -67,6 +67,8 @@ namespace MVCLibrary.Implementations.Services
                     {
                         var lend = new Lend
                         {
+                            IdBook = item.Id,
+                            IdUser = user.Id,
                             Book = item,
                             User = user,
                             DateBorrowed = DateTime.Now,

@@ -15,7 +15,8 @@ namespace MVCLibrary.Models
         public DateTime DateReturn { get; set; }
 
         public string State { get; set; }
-
+        public int IdBook { get; set; }
+        public string IdUser { get; set; }
         public virtual User User { get; set; }
 
         public virtual Book Book { get; set; }
