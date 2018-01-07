@@ -4,14 +4,60 @@
     ViewBag.Title = "Index";
 }
 
-@if (Model.cart != null)
-{
-    if (Model.cart.books.Count != 0)
+<div ng-controller="booksController" class="table-responsive">
+    @if (Model.cart != null)
     {
-        <table class="table">
-            @foreach (var item in Model.cart.books)
+        if (Model.cart.books.Count != 0)
+        {
+            <table class="table">
+                @foreach (var item in Model.cart.books)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Author)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ISBN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Available)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Usuń", "RemoveBook", "Cart", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+
+                }
+            </table>
+            @Html.ActionLink("Wypożycz ksiązki", "LendBooks", "Cart", null, new { @class = "btn btn-success" })
+            @Html.ActionLink("Wyczyść koszyk", "ClearCart", "Cart", null, new { @class = "btn btn-danger" })
+        }
+    }
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Author
+                </th>
+                <th>
+                    ISBN
+                </th>
+                <th>
+                    Available
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.BookViewModels)
             {
-                <tr>
+                <tr ng-if="editmode != @(item.Id)">
                     <td>
                         @Html.DisplayFor(modelItem => item.Title)
                     </td>
@@ -25,61 +71,39 @@
                         @Html.DisplayFor(modelItem => item.Available)
                     </td>
                     <td>
-                        @Html.ActionLink("Usuń", "RemoveBook", "Cart", new { id = item.Id }, new { @class = "btn btn-success" })
+                        @if (Request.IsAuthenticated)
+                        {
+                            @Html.ActionLink(MVCLibrary.Resources.HomeTexts.AddToCart, "AddBookToCart", "Cart", new { id = item.Id }, new { @class = "btn btn-success" })
+                            if (User.IsInRole("Admin") || User.IsInRole("Worker"))
+                            {
+                                <a class="btn btn-warning" ng-click="setEditMode(@(item.Id))">Edit</a>
+                                @Html.ActionLink(MVCLibrary.Resources.HomeTexts.Delete, "Delete", null, new { @class = "btn btn-danger" } /* id=item.PrimaryKey */ );
+                            }
+                        }
                     </td>
                 </tr>
-
-            }
-        </table>
-        @Html.ActionLink("Wyczyść koszyk", "ClearCart", "Cart", null, new { @class = "btn btn-success" })
-        @Html.ActionLink("Wypożycz ksiązki", "LendBooks", "Cart", null, new { @class = "btn btn-success" })
-
-    }
-}
-<table class="table ">
-    <tr>
-        <th>
-            Title
-        </th>
-        <th>
-            Author
-        </th>
-        <th>
-            ISBN
-        </th>
-        <th>
-           Available
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.BookViewModels)
-            {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ISBN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Available)
-            </td>
-            <td>
-                @if (Request.IsAuthenticated)
-                {
-                    @Html.ActionLink(MVCLibrary.Resources.HomeTexts.AddToCart, "AddBookToCart", "Cart", new { id = item.Id }, new { @class = "btn btn-success" })
-                    if (User.IsInRole("Admin") || User.IsInRole("Worker"))
+                <tr ng-if="editmode == @(item.Id)" class="form-group">
+                    @using (Html.BeginForm("Edit", "Books", FormMethod.Post))
                     {
-                        @Html.ActionLink(MVCLibrary.Resources.HomeTexts.Edit, "Edit", new { /* id=item.PrimaryKey */ });
-                        @Html.ActionLink(MVCLibrary.Resources.HomeTexts.Delete, "Delete", new { /* id=item.PrimaryKey */ });
+                        <td>
+                            @Html.TextBoxFor(modelItem => item.Title, new { @class = "form-control" })
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(modelItem => item.Author, new { @class = "form-control" })
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(modelItem => item.ISBN, new { @class = "form-control" })
+                        </td>
+                        <td>
+                            @Html.CheckBoxFor(modelItem => item.Available, new { @class = "form-control" })
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" ng-click="cancel()">Cancel</a>
+                            <input class="btn btn-success" type="submit" ng-click="submit()" value="Submit" />
+                        </td>
                     }
-                }
-            </td>
-        </tr>
-
-    }
-</table>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

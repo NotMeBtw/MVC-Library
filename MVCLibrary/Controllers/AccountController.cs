@@ -158,7 +158,7 @@ namespace MVCLibrary.Controllers
                 {
                     var currentUser = UserManager.FindByName(user.UserName);
 
-                    var roleresult = UserManager.AddToRole(currentUser.Id, "Client");
+                    var roleresult = UserManager.AddToRole(currentUser.Id, "Admin");
 
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 

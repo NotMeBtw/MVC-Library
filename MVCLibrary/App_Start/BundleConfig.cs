@@ -28,7 +28,7 @@ namespace MVCLibrary
 
             //Add controllers here
             bundles.Add(new ScriptBundle("~/bundles/controllers").Include(
-                      "~/Scripts/controllers/"));
+                      "~/Scripts/controllers/appController.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

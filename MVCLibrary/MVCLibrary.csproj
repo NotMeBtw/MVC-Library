@@ -248,51 +248,6 @@
     <Compile Include="Implementations\Services\BookService.cs" />
     <Compile Include="Implementations\Services\CartService.cs" />
     <Compile Include="Implementations\Services\CategoryService.cs" />
-    <Compile Include="Migrations\201711231110402_firstMigration.cs" />
-    <Compile Include="Migrations\201711231110402_firstMigration.Designer.cs">
-      <DependentUpon>201711231110402_firstMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231329233_second.cs" />
-    <Compile Include="Migrations\201711231329233_second.Designer.cs">
-      <DependentUpon>201711231329233_second.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231334558_third.cs" />
-    <Compile Include="Migrations\201711231334558_third.Designer.cs">
-      <DependentUpon>201711231334558_third.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231415099_thirde.cs" />
-    <Compile Include="Migrations\201711231415099_thirde.Designer.cs">
-      <DependentUpon>201711231415099_thirde.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231418034_thourth.cs" />
-    <Compile Include="Migrations\201711231418034_thourth.Designer.cs">
-      <DependentUpon>201711231418034_thourth.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231538482_5.cs" />
-    <Compile Include="Migrations\201711231538482_5.Designer.cs">
-      <DependentUpon>201711231538482_5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231552239_6.cs" />
-    <Compile Include="Migrations\201711231552239_6.Designer.cs">
-      <DependentUpon>201711231552239_6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231553272_j.cs" />
-    <Compile Include="Migrations\201711231553272_j.Designer.cs">
-      <DependentUpon>201711231553272_j.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231601071_10.cs" />
-    <Compile Include="Migrations\201711231601071_10.Designer.cs">
-      <DependentUpon>201711231601071_10.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231606565_11.cs" />
-    <Compile Include="Migrations\201711231606565_11.Designer.cs">
-      <DependentUpon>201711231606565_11.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711231608268_12.cs" />
-    <Compile Include="Migrations\201711231608268_12.Designer.cs">
-      <DependentUpon>201711231608268_12.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Configuration.cs" />
     <Compile Include="DAL\MVCLIbraryContext.cs" />
     <Compile Include="Migrations\201712141037067_second1.cs" />
     <Compile Include="Migrations\201712141037067_second1.Designer.cs">
@@ -360,6 +315,7 @@
     </Content>
     <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\controllers\appController.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -419,7 +375,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
